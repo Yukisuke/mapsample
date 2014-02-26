@@ -62,16 +62,14 @@ function calcRoute() {
     <style type="text/css">
       body { height: 100%; margin: 0px; padding: 0px }
       #map {
-      width: 800px;
-      height: 480px;
+      width: 100%;
+      height: 500px;
       border: solid lpx #ccc;
       }
     </style>
   </head>
 
   <body onload="initialize()">
-    <div id="map"></div>
-    <div id="message"></div>
 <!--    <input onclick="calcRoute()" type="button" value="Route Calc" /> -->
 <div id="panel">
   <b> Destination: </b>
@@ -83,5 +81,7 @@ function calcRoute() {
       <option value="San Diego, CA">San Diego</option>
     </select>
 </div>
+    <div id="map"></div>
+    <div id="message"></div>
   </body>
 </html>
