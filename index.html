@@ -51,6 +51,9 @@ function initialize() {
 	var service = new google.maps.places.PlacesService(map);
 	service.nearbySearch(request, callback);
 
+document.getElementById("loclat").innerHTML = position.coords.latitude;
+document.getElementById("loclng").innerHTML = position.coords.longitude;
+
     }, function(error) {
 	var message = "";
 	switch(error.code){
@@ -112,12 +115,19 @@ function calcRoute() {
     });
 }
 
+// When window is resized, center the current location on map
+google.maps.event.addDomListener(window, "resize", function() {
+    var center = map.getCenter();
+    google.maps.event.trigger(map, "resize");
+    map.setCenter(center);
+});
+
 /*google.maps.event.addDomListener(window, 'load', initialize);*/
 
 </script>
 
     <style type="text/css">
-      body { height: 100%; margin: 0px; padding: 0px }
+      body { height: 100%; margin: 0px; padding: 1px }
       #map {
       width: 100%;
       height: 500px;
@@ -151,7 +161,7 @@ function calcRoute() {
 	</div><!--/.container-->
       </div>
 
-      <div id="panel">
+      <div id="panel" style="float:left">
 	<b> Destination: </b>
 	<select id="end" onchange="calcRoute();">
 	  <option value="Mountain View, CA">Mountain View</option>
@@ -161,9 +171,12 @@ function calcRoute() {
 	  <option value="San Diego, CA">San Diego</option>
 	</select>
       </div>
+      <div id="loc" style="float:left">
+	  <div id="loclat" style="float:left">  </div>
+	  <div id="loclng" style="float:left"></div>
+      </div>
       <div id="map"></div>
       <div id="message"></div>
     </div>
-
   </body>
 </html>
