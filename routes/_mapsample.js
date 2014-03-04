@@ -85,9 +85,14 @@ function callback(results, status) {
 }
 
 function createMarker(place) {
+//    var photos = place.photos;
+//    if(!photos) {
+//	return;
+//    }
     var marker = new google.maps.Marker({
 	map: map,
-	position: place.geometry.location
+	position: place.geometry.location,
+//	icon: photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35})
     });
     google.maps.event.addListener(marker, 'click', function(){
 	infowindow.setContent(place.name);

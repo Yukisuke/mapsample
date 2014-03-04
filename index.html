@@ -18,6 +18,9 @@
       width: 100%;
       height: 480px;
       }
+      .list-group {
+      list-style: none;
+      }
     </style>
   </head>
 
@@ -55,12 +58,26 @@
 	</ul>
 	<form name="search_input" id="search_input" value="" class="navbar-form navbar-right">
 	  <input type="text" class="form-control" name="search_input" autocomplete="on" placeholder="Search">
-	  <button type="submit" class="btn btn-default" onclick="initialize();">Submit</button>
+	  <button type="submit" class="btn btn-default btn-lg" onclick="initialize();">
+	    <span class="glyphicon glypicon-search"></span>Search</button>
 	</form>
       </div>
     </div>
 
     <div id="map"> </div>
+
+    <div class="panel panl-primary">
+      <div id ="list">
+	<ul class="list-group">
+	  <li class="list-group-item">First</li>
+	  <li class="list-group-item">Second</li>
+	  <li class="list-group-item">Third</li>
+	  <li class="list-group-item">Fourth</li>
+	  <li class="list-group-item">Fifth</li>
+	  <li class="list-group-item">Sixth</li>
+	</ul>
+      </div>
+    </div>
     <div id="message"></div>
 
   </body>
