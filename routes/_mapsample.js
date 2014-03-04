@@ -2,6 +2,7 @@ var map;
 var directionsService = new google.maps.DirectionsService();
 var directionsRenderer;
 var infowindow;
+var text;
 
 function initialize() {
 // Using callback function to get current location, because it is asynchronous programming.
@@ -23,17 +24,13 @@ function initialize() {
 	map = new google.maps.Map(document.getElementById('map'), myOption);
 	// Free icon from https://www.iconfinder.com/
 	var img_loc = 'http://imgur.com/JIuhcUo.png';
+
 	var marker = new google.maps.Marker({
 	    position: latlng,
 	    map: map,
 	    icon: img_loc,
 	    title: 'Current location'
 	});
-	var request = {
-	    location: latlng,
-	    radius: 500,
-	    types: ['store']
-	};
 
 	// Create an instance for direction service, and set map for it.
 	directionsRenderer = new google.maps.DirectionsRenderer();
@@ -42,10 +39,24 @@ function initialize() {
 	// Create an instance for info window, and create a new service with map.
 	infowindow = new google.maps.InfoWindow();
 	var service = new google.maps.places.PlacesService(map);
-	service.nearbySearch(request, callback);
+
+	// Get the search query from the form, named "input"
+	// http://www.crystal-creation.com/web-appli/technical-information/programming/javascript/dom/node/element/html/form/
+	document.getElementById("search_input").onsubmit = function(){
+	    text = this.search_input.value;
+	    console.log('Search by: ' + text);
+	    var request = {
+		location: latlng,
+		radius: 1000,
+		query: text
+	    };
+    	    service.textSearch(request, callback);
+	    return false;
+	};
+
 	// Display latitude and longitude of current position.
-	document.getElementById("loclat").innerHTML = position.coords.latitude;
-	document.getElementById("loclng").innerHTML = position.coords.longitude;
+//	document.getElementById("loclat").innerHTML = position.coords.latitude;
+//	document.getElementById("loclng").innerHTML = position.coords.longitude;
 
     }, function(error) {
 	var message = "";
@@ -107,7 +118,11 @@ function calcRoute() {
     });
 }
 
-/*google.maps.event.addDomListener(window, 'load', initialize);*/
+
+// Adds a listener to the window object, which as soon as the load event is triggered (i.e. "the page has finished loading") executes the function initialize.
+// i.e. it delays the Google Map related script until the page has finished loading.
+google.maps.event.addDomListener(window, 'load', initialize);
+
 google.maps.event.addDomListener(window, "resize", function() {
     var center = map.getCenter();
     google.maps.event.trigger(map, "resize");
