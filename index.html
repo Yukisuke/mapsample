@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
     <title>Location API Sample</title>
+<!--    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">-->
+    <script src="https://code.jquery.com/jquery-1.11.0.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
-    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fjquery.js"></script>
-    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet" type="text/style">
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>
     <script type="text/javascript" src="routes/_mapsample.js"></script>
 
     <style type="text/css">
@@ -27,41 +28,41 @@
 <!--  <body onload="initialize();">-->
   <body>
     <div class="navbar navbar-static-top" role="navigation">
-      <div class="navbar-inner">
-	<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".bs-navbar-collapse-1">
+      <div class="navbar-header">
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+	  <span class="sr-only">Toggle navigation</span>
 	  <span class="icon-bar"></span>
 	  <span class="icon-bar"></span>
 	  <span class="icon-bar"></span>
 	</button>
-	<a class="brand" href="#">SampleMap</a>
-	<div class="nav-collapse collapse" id="bs-navbar-collapse-1">
-	  <ul class="nav navbar-nav">
-	    <li class="active"><a href="#">Map</a></li>
-	    <li><a href="#">Music</a></li>
-	    <li><a href="#">Setting</a></li>
-	  </ul>
-	</div>
+	<a class="navbar-brand" href="#">SampleMap</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+	<ul class="nav navbar-nav">
+	  <li class="active"><a href="#">Map</a></li>
+	  <li><a href="#">Music</a></li>
+	  <li><a href="#">Setting</a></li>
+	</ul>
       </div>
     </div>
 
-    <div class="navbar" role="navigation">
-      <div class="navbar-inner">
-	<ul class="nav">
-	  <li>
-	    <select id="end" onchange="calcRoute();">
-	      <option value="Mountain View, CA">Mountain View</option>
-	      <option value="Palo Alto, CA">Palo Alto</option>
-	      <option value="San Francisco, CA">San Francisco</option>
-	      <option value="Los Angeles, CA">Los Angeles</option>
-	      <option value="San Diego, CA">San Diego</option>
-	  </select></li>
-	</ul>
-	<form name="search_input" id="search_input" value="" class="navbar-form navbar-right">
-	  <input type="text" class="form-control" name="search_input" autocomplete="on" placeholder="Search">
-	  <button type="submit" class="btn btn-default btn-lg" onclick="initialize();">
-	    <span class="glyphicon glypicon-search"></span>Search</button>
-	</form>
-      </div>
+    <div class="navbar navbar" role="navigation">
+      <form name="search_input" id="search_input" value="" class="navbar-form navbar-right">
+	<input type="text" class="form-control" name="search_input" autocomplete="on" placeholder="Search">
+	<button type="submit" class="btn btn-default btn-lg" onclick="initialize();">
+	  Search</button>
+      </form>
+
+      <ul class="nav">
+	<li>
+	  <select id="end" onchange="calcRoute();">
+	    <option value="Mountain View, CA">Mountain View</option>
+	    <option value="Palo Alto, CA">Palo Alto</option>
+	    <option value="San Francisco, CA">San Francisco</option>
+	    <option value="Los Angeles, CA">Los Angeles</option>
+	    <option value="San Diego, CA">San Diego</option>
+	</select></li>
+      </ul>
     </div>
 
     <div id="map"> </div>
