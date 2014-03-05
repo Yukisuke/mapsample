@@ -8,11 +8,23 @@
     <script src="https://code.jquery.com/jquery-1.11.0.js"></script>
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/style">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css" rel="stylesheet" type="text/style">
+    <link href="public/bootstrap/css/bootstrap-responsive.css" rel="styleshee">
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>
     <script type="text/javascript" src="routes/_mapsample.js"></script>
 
     <style type="text/css">
+      @media(min-width: 980px) {
+      }
+      @media(min-width: 1200px) {
+      }
+      @media(min-width: 768px) {
+      }
+      @media(max-width: 480px) {
+      }
+      @media(max-width: 979px) {
+      }
+
       body { 
       height: 100%;
       }
@@ -65,10 +77,14 @@
 	</select></li>
       </ul>
     </div>
-
-    <div id="map"> </div>
-
-    <div class="panel panl-primary">
+    
+    <div class="container">
+      <div class="google-map-canvas" id="map"> </div>
+    </div>
+    <div class="panel panel-primary">
+      <div class="panel-body">
+	<p>This list is for route direction.</p>
+      </div>
       <div id ="list">
 	<ul class="list-group">
 	  <li class="list-group-item">First</li>
@@ -77,9 +93,14 @@
 	  <li class="list-group-item">Fourth</li>
 	  <li class="list-group-item">Fifth</li>
 	  <li class="list-group-item">Sixth</li>
+	  <li class="list-group-item">Seventh</li>
+	  <li class="list-group-item">Eighth</li>
+	  <li class="list-group-item">Nineth</li>
+	  <li class="list-group-item">Tenth</li>
 	</ul>
-      </div>
-    </div>
+      </div><!--list-->
+    </div><!--panel-->
+
     <div id="message"></div>
 
   </body>
